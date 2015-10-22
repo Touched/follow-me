@@ -47,6 +47,8 @@ def main():
         hook('warp.s', 'test.gba', 0x820000, 0x05CAF4, 0)
         hook('ledge.s', 'test.gba', 0x830000, 0x068D58, 0)
 
+        hook('warps/stairs.s', 'test.gba', 0x840000, 0x07EB28, 1)
+
 if __name__ == '__main__':
     main()
 

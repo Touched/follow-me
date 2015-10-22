@@ -151,19 +151,19 @@ movement_list:
 .byte 0x21, 0x22, 0x23, 0x24
 
 @@ 0x25 - Step on the Spot Down (Faster)
-.long FOLLOWER_NO_FLAGS
+.long FOLLOWER_COPY
 .byte 0x25, 0x26, 0x27, 0x28
 
 @@ 0x26 - Step on the Spot Up (Faster)
-.long FOLLOWER_NO_FLAGS
+.long FOLLOWER_COPY
 .byte 0x25, 0x26, 0x27, 0x28
 
 @@ 0x27 - Step on the Spot Left (Faster)
-.long FOLLOWER_NO_FLAGS
+.long FOLLOWER_COPY
 .byte 0x25, 0x26, 0x27, 0x28
 
 @@ 0x28 - Step on the Spot Right (Faster)
-.long FOLLOWER_NO_FLAGS
+.long FOLLOWER_COPY
 .byte 0x25, 0x26, 0x27, 0x28
 
 @@ 0x29 - Step on the Spot Down (Fastest)
