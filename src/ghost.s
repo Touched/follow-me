@@ -2,7 +2,7 @@
 	.thumb
 	.include "config.s"
 
-main:
+collision_hook:
 	ldr r3, =follower_config @ NPC State index
 	ldrb r3, [r3]
 	lsl r0, r3, #3

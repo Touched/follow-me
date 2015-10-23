@@ -2,7 +2,7 @@
 	.thumb
 	.include "config.s"
 
-main:
+ledge_hook:
 	mov r3, r6 		@ npc_state pointer from parent function
 	mov r6, #0
 	mov r1, #0x36

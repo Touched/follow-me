@@ -2,7 +2,7 @@
 	.thumb
 	.include "config.s"
 
-main:	
+stairs_move_hook:	
 	strh r0, [r7, #0x26]
 
 	@@ Get NPC state index for follower

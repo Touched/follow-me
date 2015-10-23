@@ -2,8 +2,14 @@
 	.thumb
 	.include "constants.s"
 	.include "config.s"
+	.global set_state_hook
 
-main:
+set_state_hook:
+	mov r0, r4
+	mov r1, r5
+	bl follow_me
+	b return 
+	
 	push {r0, r6-r7}
 
 	ldr r1, walkrun_state
@@ -80,6 +86,8 @@ exit:
 	bl call_via_r2		
 	
 	pop {r0, r6-r7}
+
+return:	
 	pop {r4, r5}
 	pop {r1}
 	bx r1

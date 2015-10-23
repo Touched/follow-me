@@ -2,7 +2,7 @@
 	.thumb
 	.include "config.s"
 
-main:
+avatar_init_hook:
 	sub sp, #0x18
 
 	@@ Get ROM Npc

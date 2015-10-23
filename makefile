@@ -1,10 +1,13 @@
-develop: build run
+develop: build insert run
 
-build:
-	python assemble.py
+build : $(wildcard **/*.s) $(wildcard **/*.c)
+	./scripts/build
+
+insert: $(wildcard build/*)
+	./scripts/insert
 
 run:
-	mgba -d test.gba
+	mgba test.gba
 
 clean:
 	rm test.gba
