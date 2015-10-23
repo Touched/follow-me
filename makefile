@@ -4,7 +4,7 @@ build:
 	python assemble.py
 
 run:
-	mgba test.gba
+	mgba -d test.gba
 
 clean:
 	rm test.gba

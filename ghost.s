@@ -1,8 +1,9 @@
 	.align 2
 	.thumb
+	.include "config.s"
 
 main:
-	ldr r3, follower_config @ NPC State index
+	ldr r3, =follower_config @ NPC State index
 	ldrb r3, [r3]
 	lsl r0, r3, #3
 	add r0, r3
@@ -36,5 +37,4 @@ check:
 	bx r1
 
 	.align 2
-follower_config: .word 0x08063962 @ TODO: Change to dynamic location
 walkrun_state: .word 0x02037078

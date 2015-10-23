@@ -1,5 +1,6 @@
 	.align 2
 	.thumb
+	.include "config.s"
 
 main:
 	sub sp, #0x18
@@ -37,6 +38,10 @@ main:
 	strh r1, [r0, #6]	
 	
 	bl make_npc
+
+	@@ Save returned NPC state_id in the follower config
+	ldr r1, =follower_config
+	strb r0, [r1]
 
 	@@ Hide NPC
 	lsl r2, r0, #3 		@ npc id (returned)

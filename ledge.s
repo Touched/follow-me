@@ -1,5 +1,6 @@
 	.align 2
 	.thumb
+	.include "config.s"
 
 main:
 	mov r3, r6 		@ npc_state pointer from parent function
@@ -10,7 +11,7 @@ main:
 	beq dont_move_oam
 
 	@@ Load follower NPC state
-	ldr r2, follower_config
+	ldr r2, =follower_config
 	ldrb r2, [r2]
 	lsl r0, r2, #3
 	add r0, r2
@@ -58,7 +59,6 @@ call_via_r2:
 	
 	.align 2
 npc_states: .word 0x02036E38
-follower_config: .word 0x08063962 @ TODO: Change to dynamic location
 walkrun_state: .word 0x02037078	
 step_table:
 	.long 0x20, 0x08068D62 + 1 @ normal

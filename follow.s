@@ -1,6 +1,7 @@
 	.align 2
 	.thumb
 	.include "constants.s"
+	.include "config.s"
 
 main:
 	push {r0, r6-r7}
@@ -16,7 +17,7 @@ main:
 	bne exit
 
 test:
-	ldr r2, follower_config @ NPC State index
+	ldr r2, =follower_config @ NPC State index
 	ldrb r2, [r2]
 	lsl r0, r2, #3
 	add r0, r2
@@ -184,7 +185,6 @@ call_via_r2:
 	.align 2
 npc_states: .word 0x02036E38
 walkrun_state: .word 0x02037078
-follower_config: .word 0x08063962 @ TODO: Change to dynamic location
 
 .include "move_list.s"
 

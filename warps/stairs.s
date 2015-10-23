@@ -1,11 +1,12 @@
 	.align	2
 	.thumb
+	.include "config.s"
 
 main:	
 	strh r0, [r7, #0x26]
 
 	@@ Get NPC state index for follower
-	ldr r2, follower_config @ NPC State index
+	ldr r2, =follower_config @ NPC State index
 	ldrb r2, [r2]
 
 	@@ Get NPC State
@@ -45,4 +46,3 @@ return:
 walkrun_state: .word 0x02037078
 objects: .word 0x0202063C
 npc_states: .word 0x02036E38
-follower_config: .word 0x08063962 @ TODO: Change to dynamic location
