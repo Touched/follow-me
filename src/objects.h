@@ -1,6 +1,8 @@
 #ifndef PKMN_OBJECTS_H_
 #define PKMN_OBJECTS_H_
 
+#include "types.h"
+
 struct object;
 typedef void (*object_callback)(struct object*);
 
@@ -71,5 +73,7 @@ struct object {
 	u8 field42;
 	u8 y_height_related;
 };
+
+struct object objects[64];
 
 #endif /* PKMN_OBJECTS_H_ */

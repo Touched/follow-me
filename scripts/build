@@ -16,7 +16,7 @@ OBJCOPY = os.path.join(PATH, PREFIX + 'objcopy')
 SRC = './src'
 BUILD = './build'
 ASFLAGS = ['-mthumb', '-I', SRC]
-LDFLAGS = ['-z', 'muldefs', '-T', 'BPRE.sym']
+LDFLAGS = ['-z', 'muldefs', '-T', 'BPRE.ld', '-T', 'linker.ld']
 CFLAGS= ['-mthumb', '-mno-thumb-interwork', '-mcpu=arm7tdmi',
          '-fno-inline', '-mlong-calls', '-march=armv4t', '-Wall', '-O2']
 

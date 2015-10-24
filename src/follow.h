@@ -5,6 +5,13 @@
 
 struct follower {
 	u8 npcid;
+	struct {
+		u8 id;
+		u8 number;
+		u8 bank;
+	} map;
+	u8 locked;
+	u8 delayed_state;
 };
 
 extern struct follower follower_state;

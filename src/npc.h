@@ -55,7 +55,32 @@ struct walkrun {
 	u16 most_recent_override_tile;
 };
 
+struct rom_npc {
+	u8 nr;
+	u8 type_nr;
+	u8 rival;
+	u8 field3;
+	u16 x;
+	u16 y;
+	u8 height;
+	u8 behaviour;
+	u8 movement_area;
+	u8 fieldB;
+	u8 trainer_or_mapnumber;
+	u8 fieldD;
+	u8 sight_distance_or_mapbank;
+	u8 *script;
+	u16 local_id;
+	u16 field16;
+};
+
 extern struct walkrun walkrun_state;
 extern struct npc_state npc_states[16];
+
+void npc_half_reset(struct npc_state *);
+int npc_set_state_2(struct npc_state *, u8);
+void npc_half_reset_when_bit7_is_set(struct npc_state *);
+struct rom_npc *rom_npc_by_local_id_and_map(u8, u8, u8);
+u8 npc_instanciation_something(struct rom_npc*, u8, u8, u16, u16);
 
 #endif /* PKMN_NPC_H_ */
