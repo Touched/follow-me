@@ -1,13 +1,13 @@
 #!/usr/bin/env python
 
 from glob import glob
-import os.path
+import os
 import itertools
 import hashlib
 import subprocess
 import sys
 
-PATH = '/opt/devkitpro/devkitARM/bin'
+PATH = os.path.join(os.environ['DEVKITARM'], 'bin')
 PREFIX = 'arm-none-eabi-'
 AS = os.path.join(PATH, PREFIX + 'as')
 CC = os.path.join(PATH, PREFIX + 'gcc')
@@ -36,21 +36,21 @@ def make_output_file(filename):
 def process_assembly(in_file):
     '''Assemble'''
     out_file = make_output_file(in_file)
-    cmd = [AS, *ASFLAGS, '-c', in_file, '-o', out_file]
+    cmd = [AS] + ASFLAGS + ['-c', in_file, '-o', out_file]
     run_command(cmd)
     return out_file
 
 def process_c(in_file):
     '''Compile C'''
     out_file = make_output_file(in_file)
-    cmd = [CC, *CFLAGS, '-c', in_file, '-o', out_file]
+    cmd = [CC] + CFLAGS + ['-c', in_file, '-o', out_file]
     run_command(cmd)
     return out_file
 
 def link(objects):
     '''Link objects into one binary'''
     linked = 'build/linked.o'
-    cmd = [LD, *LDFLAGS, '-o', linked, *objects]
+    cmd = [LD] + LDFLAGS + ['-o', linked] + [objects]
     run_command(cmd)
     return linked
 
