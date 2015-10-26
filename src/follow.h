@@ -14,6 +14,7 @@ struct follower {
 	u8 locked;
 	u8 delayed_state;
 	struct coords16 log;
+	bool warp_end;
 };
 
 extern struct follower follower_state;

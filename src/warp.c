@@ -23,11 +23,16 @@ void follower_avatar_init() {
 	struct npc_state *follower = follower_npc_state();
 	npc_make_invisible(follower);
 
-	player_log_coordinates(player);
+	follower_state.warp_end = 0;
 }
 
 void stairs_move_follower(struct object *obj) {
 	struct object *follower = &objects[follower_npc_state()->oam_id];
 	follower->pos2.x = obj->pos2.x;
 	follower->pos2.y = obj->pos2.y;
+}
+
+void warp_set_end() {
+	follower_state.warp_end = 1;
+	player_log_coordinates(player_npc_state());
 }
