@@ -26,6 +26,8 @@ void follower_avatar_init() {
 	follower_state.warp_end = 0;
 }
 
+void sub_805F724(struct npc_state *npc, u16 x, u16 y);
+
 void stairs_move_follower(struct object *obj) {
 	struct object *follower = &objects[follower_npc_state()->oam_id];
 	follower->pos2.x = obj->pos2.x;
@@ -33,6 +35,9 @@ void stairs_move_follower(struct object *obj) {
 }
 
 void warp_set_end() {
+	struct npc_state *player = player_npc_state();
+
 	follower_state.warp_end = 1;
-	player_log_coordinates(player_npc_state());
+	player_log_coordinates(player);
+	sub_805F724(follower_npc_state(), player->to.x, player->to.y);
 }

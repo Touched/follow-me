@@ -18,6 +18,7 @@ npc_half_reset_when_bit7_is_set = 0x08063D7C|1;
 npc_instanciation_something = 0x0805E72C|1;
 gf_memcpy = 0x081E5E78|1;
 rom_npc_by_local_id_and_map = 0x0805FD5C|1;
+sub_805F724 = 0x0805F724|1;
 
 /*
  * Custom Data
