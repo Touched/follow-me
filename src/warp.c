@@ -18,9 +18,8 @@ void follower_avatar_init() {
 	u8 npcid = npc_instanciation_something(&clone, 0, 3, 0, 0);
 	follower_state.npcid = npcid;
 
-	/* Hide follower */
-	/* struct npc_state *follower = follower_npc_state(); */
-	/* follower->field1 |= 0x20; */
+	struct npc_state *follower = follower_npc_state();
+	npc_make_invisible(follower);
 }
 
 void stairs_move_follower(struct object *obj) {
