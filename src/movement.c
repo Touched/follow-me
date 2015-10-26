@@ -10,7 +10,7 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	u8 new_state = MOVEMENT_INVALID;
 
 	if ( state_is_movement(state) && follower_state.delayed_state) {
-		new_state = follower_state.delayed_state;
+		new_state = follower_state.delayed_state + direction;
 		follower_state.delayed_state = 0;
 	}
 
