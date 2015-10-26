@@ -20,6 +20,9 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 		follower_state.delayed_state = 0;
 	}
 
+	/* Clear ice tile stuff */
+	follower->field1 &= 0xFB; 
+
 	switch (state) {
 	case 0x08:
 	case 0x09:
@@ -42,6 +45,17 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x17:
 		follower_state.delayed_state = 0x14;
 		RETURN_STATE(0x10 + direction);
+        case 0x1d:
+        case 0x1e:
+        case 0x1f:
+        case 0x20:
+		/* 
+		 * Handle ice tile. 
+		 * Set a bit to freeze the follower's animation
+		 * FIXME: Use a hook (at 08063E28) to set this bit
+		 */
+		follower->field1 |= 0x4;
+		RETURN_STATE(0x1d + direction);
 	case 0x3d:
 	case 0x3E:
 	case 0x3F:
@@ -60,6 +74,11 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 		} else {
 			RETURN_STATE(0x3d + direction);
 		}
+	case 0x94:
+	case 0x95:
+	case 0x96:
+	case 0x97:		
+		RETURN_STATE(0x94 + direction);
 	default:
 		return 0xFE;
 	}
