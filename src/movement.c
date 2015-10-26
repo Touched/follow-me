@@ -2,7 +2,7 @@
 
 u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction direction) {
 	u8 new_state;
-	
+
 	switch (state) {
 	case 0x10:
 	case 0x11:
@@ -31,6 +31,6 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 		new_state = follower_state.delayed_state;
 		follower_state.delayed_state = 0;
 	}
-	
+
 	return new_state;
 }

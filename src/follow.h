@@ -2,6 +2,7 @@
 #define FOLLOWME_FOLLOW_H_
 
 #include "types.h"
+#include "npc.h"
 
 struct follower {
 	u8 npcid;
@@ -12,6 +13,7 @@ struct follower {
 	} map;
 	u8 locked;
 	u8 delayed_state;
+	struct coords16 log;
 };
 
 extern struct follower follower_state;

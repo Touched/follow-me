@@ -28,12 +28,26 @@ u8 set_follower_npcid(u8 npcid) {
 	return npcid;
 }
 
+void player_log_coordinates(struct npc_state *player) {
+	follower_state.log.x = player->to.x;
+	follower_state.log.y = player->to.y;
+}
+
+bool player_moved(struct npc_state *player) {
+	return follower_state.log.x != player->to.x
+		|| follower_state.log.y != player->to.y;
+}
+
 void follow_me(struct npc_state *npc, u8 state) {
 	struct npc_state *follower = follower_npc_state(),
 		*player = player_npc_state();
 
 	if (player != npc) {
 		return;
+	}
+
+	if (player_moved(player)) {
+		npc_make_visible(follower);
 	}
 
 	enum direction dir = determine_direction(player, follower);
@@ -50,6 +64,7 @@ void follow_me(struct npc_state *npc, u8 state) {
 
 	npc_half_reset(follower);
 	npc_set_state_2(follower, new_state);
+	player_log_coordinates(player);	
 
 reset:
 	npc_half_reset_when_bit7_is_set(follower);

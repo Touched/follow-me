@@ -2,6 +2,8 @@
 #include "follow.h"
 #include "util.h"
 
+void player_log_coordinates(struct npc_state *player);
+
 void follower_avatar_init() {
 	struct rom_npc *npc, clone;
 
@@ -20,6 +22,8 @@ void follower_avatar_init() {
 
 	struct npc_state *follower = follower_npc_state();
 	npc_make_invisible(follower);
+
+	player_log_coordinates(player);
 }
 
 void stairs_move_follower(struct object *obj) {
