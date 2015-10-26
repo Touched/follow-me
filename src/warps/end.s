@@ -1,12 +1,14 @@
 	.thumb
 	.align 2
 
-warp_end_hook:
-	cmp r4, #0xF
-	bls loop
+warp_door_end_hook:
 	bl warp_set_end
-	pop {r4, r5, pc}
-
-loop:
-	ldr r0, =(0x08068A62 + 1)
+	ldr r3, =(0x08068A5C + 1)
+	bl call_via_r3
+	ldr r3, =(0x0806994C + 1)
+	bl call_via_r3
+	ldr r0, =(0x0807E200 + 1)
 	bx r0
+
+call_via_r3:
+	bx r3
