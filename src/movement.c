@@ -6,6 +6,12 @@ bool state_is_movement(u8 state) {
 
 #define RETURN_STATE(state) return new_state == MOVEMENT_INVALID ? state : new_state;
 
+/* 
+ * TODO: Some of the below movements assume the action was caused by
+ * certain tiles. We might need to create modes that don't have this 
+ * assumption for applymovement scripts, etc.
+ */
+
 u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction direction) {
 	u8 new_state = MOVEMENT_INVALID;
 
