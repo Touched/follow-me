@@ -16,6 +16,7 @@ enum direction {
 	DIR_NONE
 };
 
+bool state_is_movement(u8 state);
 u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction direction);
 
 #endif /* PKMN_MOVEMENT_H_ */

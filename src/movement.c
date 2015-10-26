@@ -1,5 +1,9 @@
 #include "movement.h"
 
+bool state_is_movement(u8 state) {
+	return state > 3;
+}
+
 u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction direction) {
 	u8 new_state;
 

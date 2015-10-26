@@ -47,8 +47,7 @@ void follow_me(struct npc_state *npc, u8 state) {
 	}
 
 	/* Check if state would cause movement */
-	if (determine_follower_state(follower, state, 0) != MOVEMENT_INVALID
-	    && follower_state.warp_end) {
+	if (state_is_movement(state) && follower_state.warp_end) {
 		npc_make_visible(follower);
 		follower_state.warp_end = 0;
 	}
