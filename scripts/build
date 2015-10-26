@@ -50,7 +50,7 @@ def process_c(in_file):
 def link(objects):
     '''Link objects into one binary'''
     linked = 'build/linked.o'
-    cmd = [LD] + LDFLAGS + ['-o', linked] + [objects]
+    cmd = [LD] + LDFLAGS + ['-o', linked] + list(objects)
     run_command(cmd)
     return linked
 
