@@ -35,9 +35,12 @@ void stairs_move_follower(struct object *obj) {
 }
 
 void warp_set_end() {
-	struct npc_state *player = player_npc_state();
+	struct npc_state *player = player_npc_state(),
+		*follower = follower_npc_state();
 
 	follower_state.warp_end = 1;
 	player_log_coordinates(player);
-	sub_805F724(follower_npc_state(), player->to.x, player->to.y);
+	sub_805F724(follower, player->to.x, player->to.y);
+
+	follower->direction = player->direction;
 }
