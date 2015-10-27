@@ -8,3 +8,4 @@ warp_door_end_hook	0807E1F8	0
 warp_normal_end_hook	0807E308	0
 warp_stairs_end_hook	0807EC5A	0
 bike_hook		080A1330	0
+local_id_hook		0805DF60	3

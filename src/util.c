@@ -33,3 +33,10 @@ u8 follower_get_sprite() {
 	static const u8 sprite_table[] = { 7, 8 };
 	return sprite_table[follower_state.current_sprite];
 }
+
+u8 follower_npc_id(void) {
+	return follower_state.npcid;
+}
+
+
+
