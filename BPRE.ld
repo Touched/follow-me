@@ -19,6 +19,8 @@ npc_instanciation_something = 0x0805E72C|1;
 gf_memcpy = 0x081E5E78|1;
 rom_npc_by_local_id_and_map = 0x0805FD5C|1;
 sub_805F724 = 0x0805F724|1;
+npc_change_sprite = 0x0805F060|1;
+npc_turn = 0x0805F218|1;
 
 /*
  * Custom Data

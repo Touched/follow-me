@@ -6,3 +6,4 @@ stairs_move_hook	0807EB28	1
 warp_door_end_hook	0807E1F8	0
 warp_normal_end_hook	0807E308	0
 warp_stairs_end_hook	0807EC5A	0
+bike_hook		080A1330	0
