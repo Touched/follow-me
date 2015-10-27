@@ -28,21 +28,25 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x09:
 	case 0x0A:
 	case 0x0B:
+		/* Slow walk */
 		RETURN_STATE(0x8 + direction);
 	case 0x0C:
 	case 0x0D:
 	case 0x0E:
 	case 0x0F:
+		/* Slow slow */
 		RETURN_STATE(0xC + direction);		
 	case 0x10:
 	case 0x11:
 	case 0x12:
 	case 0x13:
+		/* Normal walk */
 		RETURN_STATE(0x10 + direction);
 	case 0x14:
 	case 0x15:
 	case 0x16:
 	case 0x17:
+		/* Ledge jump */
 		follower_state.delayed_state = 0x14;
 		RETURN_STATE(0x10 + direction);
         case 0x1d:
@@ -50,7 +54,7 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
         case 0x1f:
         case 0x20:
 		/* 
-		 * Handle ice tile. 
+		 * Handle ice tile (some walking animation)
 		 * Set a bit to freeze the follower's animation
 		 * FIXME: Use a hook (at 08063E28) to set this bit
 		 */
@@ -60,17 +64,20 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x3E:
 	case 0x3F:
 	case 0x40:
+		/* Running frames */
 		RETURN_STATE(0x3d + direction);
 	case 0x31:
 	case 0x32:
 	case 0x33:
 	case 0x34:
+		/* Bike speed */
 		RETURN_STATE(0x31 + direction);
 	case 0x41:
 	case 0x42:
 	case 0x43:
 	case 0x44:
 		/* 
+		 * Stairs (slow walking)
 		 * Running sideways on stairs does not use the slow
 		 * frames, so split this into two. 
 		 */
@@ -82,7 +89,8 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x94:
 	case 0x95:
 	case 0x96:
-	case 0x97:		
+	case 0x97:
+		/* Warp pad spinning movement */
 		RETURN_STATE(0x94 + direction);
 	default:
 		return 0xFE;
