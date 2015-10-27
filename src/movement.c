@@ -61,6 +61,11 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x3F:
 	case 0x40:
 		RETURN_STATE(0x3d + direction);
+	case 0x31:
+	case 0x32:
+	case 0x33:
+	case 0x34:
+		RETURN_STATE(0x31 + direction);
 	case 0x41:
 	case 0x42:
 	case 0x43:
