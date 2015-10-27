@@ -3,16 +3,10 @@
 #include "util.h"
 
 void handle_bike() {
-	struct npc_state *follower = follower_npc_state();
-
-	/* TODO: Read the npc state indices from somewhere! */
 	if (walkrun_state.bitfield & 6) {
 		/* Bike on */
-		npc_change_sprite(follower, 8);
+		follower_set_sprite(1);
 	} else {
-		npc_change_sprite(follower, 7);
+		follower_set_sprite(0);
 	}
-
-	/* Update direction to prevent graphical glitches */
-	npc_turn(follower, follower->direction);
 }

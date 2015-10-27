@@ -15,6 +15,7 @@ struct follower {
 	u8 delayed_state;
 	struct coords16 log;
 	bool warp_end;
+	u8 current_sprite;
 };
 
 extern struct follower follower_state;

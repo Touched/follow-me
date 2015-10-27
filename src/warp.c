@@ -20,6 +20,9 @@ void follower_avatar_init() {
 	u8 npcid = npc_instanciation_something(&clone, 0, 3, 0, 0);
 	follower_state.npcid = npcid;
 
+	/* Set sprite */
+	follower_set_sprite(follower_state.current_sprite);
+
 	struct npc_state *follower = follower_npc_state();
 	npc_make_invisible(follower);
 
