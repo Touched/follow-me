@@ -76,9 +76,9 @@ bool collision_exempt(struct npc_state *obstacle, struct npc_state *collider) {
 	struct npc_state *follower = follower_npc_state(),
 		*player = player_npc_state();
 
-	if (follower != obstacle || player != collider) {
-		return 0;
+	if (follower == obstacle && player == collider) {
+		return 1;
 	}
 
-	return 1;
+	return 0;
 }
