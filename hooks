@@ -1,6 +1,7 @@
 set_state_hook		08063CF4	1
 collision_hook 		08063928 	0
 avatar_init_hook	0805CAF4	0
+avatar_init_hook2	080570EC	0
 ledge_hook		08068D58	0
 stairs_move_hook	0807EB28	1
 warp_door_end_hook	0807E1F8	0

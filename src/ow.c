@@ -10,3 +10,11 @@ void handle_bike() {
 		follower_set_sprite(0);
 	}
 }
+
+void handle_sprite() {
+	if (walkrun_state.bitfield & 6) {
+		follower_set_sprite(1);
+	} else {
+		follower_set_sprite(0);
+	}
+}

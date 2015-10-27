@@ -3,6 +3,7 @@
 #include "util.h"
 
 void player_log_coordinates(struct npc_state *player);
+void handle_sprite();
 
 void follower_avatar_init() {
 	struct rom_npc *npc, clone;
@@ -21,7 +22,7 @@ void follower_avatar_init() {
 	follower_state.npcid = npcid;
 
 	/* Set sprite */
-	follower_set_sprite(follower_state.current_sprite);
+	handle_sprite();
 
 	struct npc_state *follower = follower_npc_state();
 	npc_make_invisible(follower);
