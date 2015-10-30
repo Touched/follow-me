@@ -92,6 +92,11 @@ u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction
 	case 0x97:
 		/* Warp pad spinning movement */
 		RETURN_STATE(0x94 + direction);
+	case 0x46:
+	case 0x47:
+	case 0x48:
+	case 0x49:
+		RETURN_STATE(0x46 + direction);
 	default:
 		return 0xFE;
 	}
