@@ -4,7 +4,7 @@ bool state_is_movement(u8 state) {
 	return state > 3;
 }
 
-#define RETURN_STATE(state) return new_state == MOVEMENT_INVALID ? state : new_state;
+#define RETURN_STATE(state) return new_state == MOVEMENT_INVALID ? state : return_delayed_state(direction);
 
 /* 
  * TODO: Some of the below movements assume the action was caused by
@@ -12,12 +12,18 @@ bool state_is_movement(u8 state) {
  * assumption for applymovement scripts, etc.
  */
 
+
+u8 return_delayed_state(enum direction direction) {
+	u8 new_state = follower_state.delayed_state;
+	follower_state.delayed_state = 0;
+	return new_state + direction;
+}
+
 u8 determine_follower_state(struct npc_state *follower, u8 state, enum direction direction) {
 	u8 new_state = MOVEMENT_INVALID;
 
-	if ( state_is_movement(state) && follower_state.delayed_state) {
+	if (state_is_movement(state) && follower_state.delayed_state) {
 		new_state = follower_state.delayed_state + direction;
-		follower_state.delayed_state = 0;
 	}
 
 	/* Clear ice tile stuff */
