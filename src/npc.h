@@ -77,9 +77,10 @@ struct rom_npc {
 extern struct walkrun walkrun_state;
 extern struct npc_state npc_states[16];
 
+u8 npc_half_reset_no_checks(struct npc_state*);
 void npc_half_reset(struct npc_state *);
 int npc_set_state_2(struct npc_state *, u8);
-void npc_half_reset_when_bit7_is_set(struct npc_state *);
+u8 npc_half_reset_when_bit7_is_set(struct npc_state *);
 struct rom_npc *rom_npc_by_local_id_and_map(u8, u8, u8);
 u8 npc_instanciation_something(struct rom_npc*, u8, u8, u16, u16);
 void npc_change_sprite(struct npc_state*, u8);
