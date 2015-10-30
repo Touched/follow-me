@@ -5,7 +5,7 @@
 
 @Surf hook, startmenu/bag access
 @hook via R0, at 0x8086B00. Write 00 00 to 0x8086AFE
-main:
+surf_bag_hook:	
 	push {r4, r5, lr}
 	ldr r0, =(follower_nomove_surf)
 	bl linker

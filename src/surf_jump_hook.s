@@ -5,7 +5,7 @@
 
 @Surf hook, make follower jump into water as well
 @hook via R0, at 0x8086B00. Write 00 00 to 0x8086AFE
-main:
+surf_hook:
 	ldr r0, =(follower_to_water)
 	bl linker
 	ldr r1, =(0x20386E0)
@@ -22,5 +22,3 @@ linker:
 	
 	
 .align 2
-
-
